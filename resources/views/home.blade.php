@@ -8,6 +8,7 @@
 </head>
 <body>
     <h2>list of books and names of authors</h2>
+    <img src="../public/img/library.jpeg" alt="" class="">
     <ul>
         @foreach($books as $book)
             <li>{{ $book->title }} - {{ $book->author }}</li>
