@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -11,7 +12,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $books = Book::all(); // Ambil semua data buku
+        return view('home', compact('books')); // Kirim data ke view //compact('books') → Ini akan membuat variabel $books tersedia di dalam view home
     }
 
     /**
@@ -59,6 +61,9 @@ class BookController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //delete
+
+        Book::find($id)->delete();
+        return redirect()->route('home');
     }
 }
